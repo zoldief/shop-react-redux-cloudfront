@@ -1,28 +1,24 @@
-service: node-in-aws-web
+service: daaaaaaa
 
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: nodejs12.x
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: personalAccount
 
 plugins:
   - serverless-finch
-  # 'serverless-single-page-app-plugin' is a custom plugin that located .serverless_plugins folder.
-  # Existing plugin (https://www.npmjs.com/package/serverless-single-page-app-plugin) doesn't have invalidate cache feature that often used during CI/CD events.
-  # How to build your own plugins: https://www.serverless.com/framework/docs/providers/aws/guide/plugins#service-local-plugin
   - serverless-single-page-app-plugin
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: myawsbucket-123321
     distributionFolder: build
-  s3BucketName: ${self:custom.client.bucketName}
 
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
+  s3BucketName: ${self:custom.client.bucketName}
 
 resources:
   Resources:
@@ -35,8 +31,8 @@ resources:
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
-        # VersioningConfiguration:
-        #   Status: Enabled
+        VersioningConfiguration:
+          Status: Enabled
 
     ## Specifying the policies to make sure all files inside the Bucket are avaialble to CloudFront
     WebAppS3BucketPolicy:
