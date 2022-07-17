@@ -5,7 +5,6 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: personalAccount
 
 plugins:
   - serverless-finch
@@ -13,7 +12,7 @@ plugins:
 
 custom:
   client:
-    bucketName: myawsbucket-123321
+    bucketName: myawsbucket-123321-v2
     distributionFolder: build
 
   ## Serverless-single-page-app-plugin configuration:
