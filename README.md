@@ -1,3 +1,9 @@
+### ClouFront URL
+https://dqstykogd0u1z.cloudfront.net/
+
+### S3 URL
+http://myawsbucket-123321.s3-website-us-east-1.amazonaws.com/
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
